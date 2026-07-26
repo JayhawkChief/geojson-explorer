@@ -6,7 +6,6 @@ modern ES6+ JavaScript, async/await, and ES modules.
 
 Built as part of a front-end ramp focused on GIS and spatial data.
 
-![screenshot](screenshot.png)
 
 # Installation
 
