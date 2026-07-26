@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoJSON Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>GeoJSON Explorer</h1>
+    <p>Live earthquake data from USGS</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <button id="load-btn">Load Earthquakes</button>
+
+      <label for="feed-select">Time range:</label>
+      <select id="feed-select">
+        <option value="all_hour">Past hour</option>
+        <option value="all_day" selected>Past 24 hours</option>
+        <option value="all_week">Past 7 days</option>
+      </select>
+
+      <label for="mag-filter">Min magnitude:</label>
+      <input id="mag-filter" type="number" value="0" min="0" max="10" step="0.5" />
+    </section>
+
+    <section class="status">
+      <p id="status-msg"></p>
+    </section>
+
+    <section class="results">
+      <table id="earthquake-table" hidden>
+        <thead>
+          <tr>
+            <th data-col="place">Location <span class="sort-arrow"> ⇅</span></th>
+            <th data-col="mag">Magnitude <span class="sort-arrow"> ⇅</span></th>
+            <th data-col="depth">Depth (km) <span class="sort-arrow"> ⇅</span></th>
+            <th data-col="time">Time <span class="sort-arrow"> ▼</span></th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script type="module" src="api.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
